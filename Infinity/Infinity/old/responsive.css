@@ -1,0 +1,291 @@
+/* Responsive Styles for Infinity Infrastructure */
+:root {
+    --header-height: 70px;
+    --menu-width: 280px;
+    --transition-speed: 0.3s;
+}
+
+/* Base Responsive Styles */
+@media screen and (max-width: 1199px) {
+    /* Laptop/Tablet Landscape */
+    .container {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+    
+    .hero-content {
+        padding: 0 20px;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Ensure header stays on top */
+    .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        height: var(--header-height);
+    }
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        padding: 0 20px;
+    }
+    
+    /* Add padding to main content to account for fixed header */
+    main {
+        padding-top: var(--header-height);
+    }
+}
+
+@media screen and (max-width: 991px) {
+    /* Tablet Portrait */
+    .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        margin: 5px 0;
+        color: #333;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+    }
+    
+    .nav-link i {
+        font-size: 1.2em;
+        width: 24px;
+        margin-right: 12px;
+        color: #0ca678;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+        background: rgba(12, 166, 120, 0.1);
+        color: #0ca678;
+    }
+    
+    .nav-cta {
+        margin-top: 15px;
+        background: #0ca678;
+        color: white !important;
+        justify-content: center;
+    }
+    
+    .nav-cta i {
+        color: white !important;
+    }
+    
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-speed) ease;
+        z-index: 1000;
+    }
+    
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        backdrop-filter: blur(3px);
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* Mobile Landscape */
+    :root {
+        --header-height: 60px;
+    }
+    
+    .hero {
+        min-height: calc(100vh - var(--header-height));
+        padding: 30px 15px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-ctas {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .hero-ctas .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-ctas {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial {
+        padding: 20px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Mobile Portrait */
+    :root {
+        --header-height: 55px;
+        --menu-width: 260px;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .brand-name {
+        font-size: 1.3rem;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .menu-toggle {
+        width: 26px;
+        height: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .team-member {
+        padding: 15px;
+    }
+    
+    .testimonial-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Utility Classes for Responsive Design */
+.hide-on-mobile {
+    display: block;
+}
+
+.show-on-mobile {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
+    
+    .show-on-mobile {
+        display: block;
+    }
+}
+
+/* Smooth Scrolling for Anchor Links */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Touch Target Sizes for Mobile */
+@media (hover: none) {
+    .btn, 
+    .nav-link, 
+    .card {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .site-header,
+    .site-footer,
+    .btn {
+        display: none !important;
+    }
+    
+    body {
+        padding: 20px;
+        font-size: 12pt;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+}
