@@ -1,8 +1,16 @@
 
-document.getElementById("submitbtn").addEventListener("click", ValidateForm);
+
+
+
+    // Initialize Lucide icons
+
 
 // Initialize Lucide icons when DOM is ready
 document.addEventListener("DOMContentLoaded", function() {
+    const submitBtn = document.getElementById("submitbtn");
+    if (submitBtn) {
+        submitBtn.addEventListener("click", ValidateForm);
+    }
     if (window.lucide) {
         lucide.createIcons();
     }
