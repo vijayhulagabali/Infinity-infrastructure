@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app,origins=["https://www.infinityinfras.com"])
 
 EMAIL_USER = os.getenv("EMAIL_USER")
 EMAIL_PASS = os.getenv("EMAIL_PASS")
@@ -49,7 +49,12 @@ def send_user_autoreply(name, email):
         server.login(EMAIL_USER, EMAIL_PASS)
         server.send_message(msg)
 
-
+@app.route("/")
+def home():
+    return jsonify({
+        "status": "running",
+        "message": "Infinity Infrastructure API running"
+    })
 @app.route("/api/contact", methods=["POST"])
 def contact():
     data = request.get_json()
