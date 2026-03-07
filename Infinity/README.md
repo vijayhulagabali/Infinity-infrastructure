@@ -3,8 +3,8 @@
 ## Project Structure
 
 ```
-Infinity/
-├── old/                          # Main website files
+
+                        # Main website files
 │   ├── index.html               # Home page
 │   ├── portfolio.html           # Portfolio page
 │   ├── style.css               # Main stylesheet
