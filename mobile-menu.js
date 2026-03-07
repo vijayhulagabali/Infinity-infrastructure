@@ -167,7 +167,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.getElementById("submitbtn").addEventListener("click", ValidateForm);
+document.addEventListener("DOMContentLoaded", function () {
+    const submitBtn = document.getElementById("submitbtn");
+
+    if (submitBtn) {
+        submitBtn.addEventListener("click", ValidateForm);
+    }
+});
 
 function ValidateForm() {
     // Client-side validation
